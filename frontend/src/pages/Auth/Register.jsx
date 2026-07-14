@@ -1,7 +1,16 @@
 import React from "react";
 
 const Register = () => {
-  const handleRegister = (e) => {};
+
+const handleRegister=(e)=>{
+  e.preventDefault();
+const name = e.target.name.value
+const password = e.target.password.value;
+
+  
+}
+
+  const Register = (e) => {};
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen w-3xl mx-auto rounded-3xl">
