@@ -1,12 +1,22 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Register = () => {
 
+  const {registerWithPassword} = use(AuthContext);
+
+
 const handleRegister=(e)=>{
   e.preventDefault();
-const name = e.target.name.value
+const  email = e.target.email.value
 const password = e.target.password.value;
-
+registerWithPassword(email,password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   
 }
 

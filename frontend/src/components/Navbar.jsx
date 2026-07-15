@@ -1,16 +1,32 @@
-import React from "react";
-import { NavLink } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink } from "react-router";
+import { AuthContext } from "./../context/AuthContext";
+import { Application } from "../pages/Applications/Application";
 
 const Navbar = () => {
+  const { user, logoutUser } = use(AuthContext);
   const links = (
     <>
       <NavLink to={"/"}>Home</NavLink>
 
       <NavLink to={"/about"}>about</NavLink>
+         <NavLink to={"/application"}>Application</NavLink>
       <NavLink to={"/dashboard"}>Dashboard</NavLink>
       <NavLink to={"/profile"}>Profile</NavLink>
+   
     </>
   );
+
+const handleLogout=()=>{
+  logoutUser()
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+}
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -37,24 +53,26 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-{
-  links
-}
+              {links}
             </ul>
           </div>
-          <a href="/" className="btn btn-ghost text-xl">OfferFlow</a>
+          <a href="/" className="btn btn-ghost text-xl">
+            OfferFlow
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-<div className="flex gap-4">
-  {
-  links
-}
-</div>
+            <div className="flex gap-4">{links}</div>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <button onClick={handleLogout} className="btn">Logout</button>
+          ) : (
+            <Link className="btn" to={"/login"}>
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
