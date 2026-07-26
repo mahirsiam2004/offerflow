@@ -1,7 +1,77 @@
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes:
-    light --default,
-    dark,
-    cupcake;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for OfferFlow */
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: theme('colors.background');
+    color: theme('colors.base-800');
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-xs border border-white/20;
+    box-shadow: theme('boxShadow.glass');
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xs border border-white/20;
+    box-shadow: theme('boxShadow.glass');
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .card {
+    @apply bg-surface rounded-xl border border-neutral-100;
+    box-shadow: theme('boxShadow.card');
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card:hover {
+    @apply shadow-card-hover;
+    transform: translateY(-2px);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, theme('colors.primary.600'), theme('colors.secondary.600'));
+  }
+
+  .gradient-primary-text {
+    background: linear-gradient(135deg, theme('colors.primary.600'), theme('colors.secondary.600'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animations */
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  /* Glassmorphism utilities */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
