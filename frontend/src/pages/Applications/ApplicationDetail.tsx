@@ -66,10 +66,10 @@ export default function ApplicationDetail() {
                 </div>
               )}
               
-              {application.location && (
+              {application.workLocation && (
                 <div className="flex items-center gap-2 text-sm">
                   <MapPin className="h-4 w-4 text-neutral-500" />
-                  <span>{application.location}</span>
+                  <span>{application.workLocation}</span>
                 </div>
               )}
               
