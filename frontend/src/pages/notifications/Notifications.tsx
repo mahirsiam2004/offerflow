@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Bell, CheckCircle, AlertCircle, Info, CheckCircle as CheckCircleIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, createElement } from 'react'
 
 export default function Notifications() {
   const [filter, setFilter] = useState<'all' | 'unread' | 'read'>('all')
@@ -106,7 +106,7 @@ export default function Notifications() {
             >
               <div className="flex items-start gap-3">
                 <div className={`flex-shrink-0 ${getNotificationColor(notification.type)}`}>
-                  {React.createElement(getNotificationIcon(notification.type), { className: "h-5 w-5" })}
+                  {createElement(getNotificationIcon(notification.type), { className: "h-5 w-5" })}
                 </div>
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
