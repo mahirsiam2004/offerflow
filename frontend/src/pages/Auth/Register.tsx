@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { auth } from '@/firebase/config'
 import { Button } from '@/components/ui/button'
-import { Mail, Lock, Chrome, User, Loader2 } from 'lucide-react'
+import { Mail, Lock, Globe, User, Loader2 } from 'lucide-react'
 import { useAuth } from '@/context/AuthProvider'
 
 export default function Register() {
@@ -138,7 +138,7 @@ export default function Register() {
           </>
         ) : (
           <>
-            <Chrome className="h-4 w-4 mr-2" />
+            <Globe className="h-4 w-4 mr-2" />
             Continue with Google
           </>
         )}
