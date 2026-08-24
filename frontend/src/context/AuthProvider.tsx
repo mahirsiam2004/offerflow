@@ -6,6 +6,7 @@ interface AuthContextType {
   user: User | null
   loading: boolean
   idToken: string | null
+  setIdToken: (token: string | null) => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -37,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, loading, idToken }}>
+    <AuthContext.Provider value={{ user, loading, idToken, setIdToken }}>
       {children}
     </AuthContext.Provider>
   )
