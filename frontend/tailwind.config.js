@@ -1,4 +1,5 @@
 import { defineConfig } from 'tailwindcss'
+import daisyui from 'daisyui'
 
 export default defineConfig({
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -72,6 +73,20 @@ export default defineConfig({
         },
         background: '#F8FAFC',
         surface: '#FFFFFF',
+        foreground: '#1E293B',
+        border: '#E2E8F0',
+        input: '#E2E8F0',
+        ring: '#2563EB',
+        card: '#FFFFFF',
+        'card-foreground': '#1E293B',
+        muted: '#F1F5F9',
+        'muted-foreground': '#64748B',
+        'primary-foreground': '#FFFFFF',
+        'secondary-foreground': '#FFFFFF',
+        'destructive-foreground': '#FFFFFF',
+        'accent-foreground': '#FFFFFF',
+        info: '#2563EB',
+        'info-content': '#FFFFFF',
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
@@ -81,8 +96,8 @@ export default defineConfig({
         xs: '2px',
       },
       boxShadow: {
-        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        glass: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+        card: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
       borderRadius: {
@@ -95,21 +110,21 @@ export default defineConfig({
       },
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
         offerflow: {
           primary: '#2563EB',
-          primary-content: '#FFFFFF',
+          'primary-content': '#FFFFFF',
           secondary: '#4F46E5',
-          secondary-content: '#FFFFFF',
+          'secondary-content': '#FFFFFF',
           success: '#22C55E',
-          success-content: '#FFFFFF',
+          'success-content': '#FFFFFF',
           warning: '#F59E0B',
-          warning-content: '#000000',
+          'warning-content': '#000000',
           danger: '#EF4444',
-          danger-content: '#FFFFFF',
+          'danger-content': '#FFFFFF',
           background: '#F8FAFC',
           surface: '#FFFFFF',
           accent: '#8B5CF6',
@@ -124,7 +139,7 @@ export default defineConfig({
           'base-800': '#1E293B',
           'base-900': '#0F172A',
           info: '#2563EB',
-          info-content: '#FFFFFF',
+          'info-content': '#FFFFFF',
         },
       },
     ],

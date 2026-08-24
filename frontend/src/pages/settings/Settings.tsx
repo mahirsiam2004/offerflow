@@ -100,6 +100,7 @@ export default function Settings() {
             <CardTitle className="flex items-center gap-2">
               <Shield className="h-5 w-5" />
               Security
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
