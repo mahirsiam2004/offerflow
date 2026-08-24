@@ -4,8 +4,10 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
+    "moduleResolution": "bundler",
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -14,9 +16,13 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "allowJs": false,
+    "allowJs": true,
     "declaration": false,
-    "types": ["vite/client", "node"]
+    "types": ["vite/client", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

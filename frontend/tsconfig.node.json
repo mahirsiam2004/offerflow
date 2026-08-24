@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     "composite": true,
-    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "outDir": "./node_modules/.tmp/tsnode",
     "noImplicitAny": false,
     "strictNullChecks": false,
     "skipLibCheck": true,
     "allowJs": true,
     "types": ["node"]
   },
-  "include": ["./vite.config.ts", "./tsconfig.json"]
+  "include": ["./vite.config.ts"]
 }
