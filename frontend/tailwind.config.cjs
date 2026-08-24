@@ -1,7 +1,6 @@
-import { defineConfig } from 'tailwindcss'
-import daisyui from 'daisyui'
+const daisyui = require('daisyui')
 
-export default defineConfig({
+module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -68,7 +67,7 @@ export default defineConfig({
           500: '#EF4444',
           600: '#DC2626',
           700: '#B91C1C',
-          800: '#991B1B',
+          800: '#991B1D',
           900: '#7F1D1D',
         },
         background: '#F8FAFC',
@@ -144,4 +143,4 @@ export default defineConfig({
       },
     ],
   },
-})
+}
