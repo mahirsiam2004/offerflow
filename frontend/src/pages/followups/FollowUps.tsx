@@ -25,7 +25,7 @@ export default function FollowUps() {
       await api.delete(`/followups/${id}`)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['followups'])
+      queryClient.invalidateQueries({ queryKey: ['followups'] })
       toast.success('Follow-up deleted')
     },
   })

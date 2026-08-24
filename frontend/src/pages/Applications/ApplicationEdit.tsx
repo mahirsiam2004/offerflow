@@ -52,7 +52,7 @@ export default function ApplicationEdit() {
       await api.patch(`/applications/${id}`, data)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['applications'])
+      queryClient.invalidateQueries({ queryKey: ['applications'] })
       toast.success('Application updated')
       navigate('/applications')
     },
@@ -60,7 +60,7 @@ export default function ApplicationEdit() {
 
   const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
-    defaultValues: application,
+    defaultValues: application as any,
   })
 
   if (isLoading) {
@@ -71,7 +71,7 @@ export default function ApplicationEdit() {
     return <div className="text-center py-8">Application not found</div>
   }
 
-  const onSubmit = (data: ApplicationFormData) => {
+  const onSubmit = (data: any) => {
     updateMutation.mutate(data)
   }
 

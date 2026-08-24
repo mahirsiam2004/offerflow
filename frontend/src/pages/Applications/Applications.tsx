@@ -4,7 +4,7 @@ import { api } from '@/api/client'
 import { Application } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Plus, Edit, Trash2, ExternalLink, FileText, Calendar, User, MapPin, DollarSign, Tag, Clock } from 'lucide-react'
+import { Plus, Edit, Trash2, ExternalLink, FileText, Calendar, User, MapPin, DollarSign, Tag, Clock, Briefcase } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { toast } from 'react-hot-toast'
 
@@ -25,7 +25,7 @@ export default function Applications() {
       await api.delete(`/applications/${id}`)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['applications'])
+      queryClient.invalidateQueries({ queryKey: ['applications'] })
       toast.success('Application deleted')
     },
   })
@@ -122,7 +122,7 @@ export default function Applications() {
                       variant="ghost" 
                       size="sm" 
                       onClick={() => handleDelete(app.id)}
-                      disabled={deleteMutation.mutate}
+                      disabled={deleteMutation.isPending}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

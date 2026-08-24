@@ -4,7 +4,7 @@ import { api } from '@/api/client'
 import { Interview } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Plus, Edit, Trash2, Calendar, Clock, Video, Phone } from 'lucide-react'
+import { Plus, Edit, Trash2, Calendar, Clock, Video, Phone, MapPin, Code, Brain } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { toast } from 'react-hot-toast'
 
@@ -25,7 +25,7 @@ export default function Interviews() {
       await api.delete(`/interviews/${id}`)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['interviews'])
+      queryClient.invalidateQueries({ queryKey: ['interviews'] })
       toast.success('Interview deleted')
     },
   })

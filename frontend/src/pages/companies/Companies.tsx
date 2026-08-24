@@ -25,7 +25,7 @@ export default function Companies() {
       await api.delete(`/companies/${id}`)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['companies'])
+      queryClient.invalidateQueries({ queryKey: ['companies'] })
       toast.success('Company deleted')
     },
   })
