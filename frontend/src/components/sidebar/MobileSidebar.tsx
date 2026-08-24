@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react'
-import { Dialog, Transition } from '@headless/react/react'
+import { Dialog, Transition } from '@headlessui/react'
 import { Link, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, 
@@ -44,7 +44,7 @@ export default function MobileSidebar({ open, setOpen }: MobileSidebarProps) {
           enter="ease-out duration-300"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leaveEnter="ease-in duration-200"
+          leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
